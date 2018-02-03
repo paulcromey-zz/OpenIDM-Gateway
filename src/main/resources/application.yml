@@ -5,3 +5,11 @@ remote:
   home: http://localhost:8080
 server:
   port: 8090
+logging:
+  file: logs/dev_app.log
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+    file: "%d %-5level [%thread] %logger : %msg%n"
+  level:
+    org.springframework.web: INFO
+    com.cromey.gateway: DEBUG
