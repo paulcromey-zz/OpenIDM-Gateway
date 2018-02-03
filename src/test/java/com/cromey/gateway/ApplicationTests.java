@@ -48,9 +48,9 @@ public class ApplicationTests {
 	protected TestRestTemplate rest;
 
 	@Test
-	public void header() throws Exception {
-		ResponseEntity<String> response = rest.exchange(RequestEntity.get(new URI("/api")).build(), String.class);
+	public void response() throws Exception {
+		ResponseEntity<String> response = rest.exchange(RequestEntity.get(new URI("/users")).build(), String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-		assertThat(response.getBody()).isEqualTo("it works!");
+		assertThat(response.getBody()).isNotNull();
 	}
 }
