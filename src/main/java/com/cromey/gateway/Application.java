@@ -3,6 +3,8 @@ package com.cromey.gateway;
 import java.net.URI;
 import java.util.function.Function;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @SpringBootApplication
 public class Application {
+	
+	private final Logger logger = LoggerFactory.getLogger(this.getClass().getSimpleName());
 
 	@Value("${remote.home}")
 	private URI home;
@@ -31,6 +35,8 @@ public class Application {
 
 	private Function<ResponseEntity<Object>, ResponseEntity<Object>> response() {
 
+		logger.info("This is an info message");
+		
 		return response -> ResponseEntity.status(response.getStatusCode()).headers(response.getHeaders())
 				.body(response.getBody());
 
