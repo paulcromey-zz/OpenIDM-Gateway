@@ -32,7 +32,7 @@ public class UserControllerTests {
 
 	@Test
 	public void response() throws Exception {
-		ResponseEntity<String> response = rest.exchange(RequestEntity.get(new URI("/users")).build(), String.class);
+		ResponseEntity<String> response = rest.exchange(RequestEntity.get(new URI("/user")).build(), String.class);
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(response.getBody()).isNotNull();
 	}
