@@ -28,7 +28,7 @@ public class UserController {
 	@GetMapping(path = "/user")
 	public @ResponseBody ResponseEntity<Object> proxy(ProxyExchange<Object> proxy) throws Exception {
 		
-		logger.info("Call users endpoint");
+		logger.info("Call user endpoint");
 		
 		return proxy.uri(home + "/openidm/managed/user/?_queryId=query-all-ids")
 				.header("X-OpenIDM-Username", "openidm-admin").header("X-OpenIDM-Password", "openidm-admin")
@@ -37,7 +37,7 @@ public class UserController {
 
 	private Function<ResponseEntity<Object>, ResponseEntity<Object>> response() {
 
-		logger.info("Return response");
+		logger.info("Return user response");
 		
 		return response -> ResponseEntity.status(response.getStatusCode()).headers(response.getHeaders())
 				.body(response.getBody());
