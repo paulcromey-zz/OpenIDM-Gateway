@@ -1,6 +1,7 @@
 management:
   security:
     enabled: false
+debug: false
 remote:
   home: http://localhost:8080
 server:
