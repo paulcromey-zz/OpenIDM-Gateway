@@ -18,14 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
-public class Controller {
+public class UserController {
 	
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Value("${remote.home}")
 	private URI home;
 
-	@GetMapping(path = "/users")
+	@GetMapping(path = "/user")
 	public @ResponseBody ResponseEntity<Object> proxy(ProxyExchange<Object> proxy) throws Exception {
 		
 		logger.info("Call users endpoint");
